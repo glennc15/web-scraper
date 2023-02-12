@@ -24,7 +24,7 @@ class WebScraperTests(unittest.TestCase):
 
 
 		my_crawler = WebCrawler(
-			base_url='',
+			base_url='https://old.reddit.com/r/islam/new/',
 			link_scraper=RedditLinkScraper,
 			data_scraper=RedditPageScraper,
 			output_format=JSONFormatter,
@@ -32,11 +32,11 @@ class WebScraperTests(unittest.TestCase):
 		)
 
 
-		self.assertEquals(len(my_crawler.link_urls), 2)
+		self.assertEqual(len(my_crawler.link_urls), 2)
 		self.assertTrue(len(my_crawler.data_urls) >= 2)
 
 
-		self.assertEquals(len(my_crawler.link_urls), len(my_crawler.data))
+		self.assertEqual(len(my_crawler.data_urls), len(my_crawler.data))
 
 
 
